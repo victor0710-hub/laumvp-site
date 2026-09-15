@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111114">
+  <title>LauMVP — Independent Game Studio</title>
+  <meta name="description" content="LauMVP is an independent game studio behind Zero Pixel Dawn and High Life. Independent games, made with claws.">
+  <link rel="canonical" href="https://laumvp.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LauMVP">
+  <meta property="og:title" content="LauMVP — Independent Games, Made With Claws">
+  <meta property="og:description" content="LauMVP is an independent game studio behind Zero Pixel Dawn and High Life. Independent games, made with claws.">
+  <meta property="og:url" content="https://laumvp.com/">
+  <meta property="og:image" content="https://laumvp.com/assets/social-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LauMVP — Independent Games, Made With Claws">
+  <meta name="twitter:description" content="LauMVP is an independent game studio behind Zero Pixel Dawn and High Life. Independent games, made with claws.">
+  <meta name="twitter:image" content="https://laumvp.com/assets/social-preview.jpg">
+
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Brand icons. If we want zero external dependencies later, we'll bundle these locally. -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <a class="brand brand-wordmark" href="#top" aria-label="LauMVP home">
+      <span class="brand-main">LAUMVP</span>
+      <span class="brand-sub">GAME STUDIO</span>
+    </a>
+
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+
+    <div class="header-right">
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#games">Games</a>
+        <a href="about.html">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-socials" aria-label="LauMVP social links">
+        <span class="social-disabled" aria-label="Discord link coming soon" title="Discord — invite link coming soon"><i class="fa-brands fa-discord"></i></span>
+        <a href="https://x.com/laumvpstudio" target="_blank" rel="noopener" aria-label="LauMVP on X" title="X"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.youtube.com/@laumvpstudio" target="_blank" rel="noopener" aria-label="LauMVP on YouTube" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@laumvpstudio" target="_blank" rel="noopener" aria-label="LauMVP on TikTok" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://www.instagram.com/laumvp_studio/" target="_blank" rel="noopener" aria-label="LauMVP on Instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero zpd-hero" aria-labelledby="hero-title">
+      <div class="zpd-hero-image-wrap" aria-hidden="true">
+        <img src="assets/zpd-forest-scene.png" alt="" class="zpd-hero-image">
+      </div>
+      <div class="zpd-hero-shade" aria-hidden="true"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-sweep" aria-hidden="true"></div>
+
+      <div class="hero-content reveal">
+        <div class="eyebrow zpd-hero-steam">
+          <span class="eyebrow-line"></span>
+          <i class="fa-brands fa-steam"></i>
+          Available on Steam
+        </div>
+
+        <h1 id="hero-title" class="zpd-hero-title">
+          <span>ZERO</span>
+          <span>PIXEL</span>
+          <span class="zpd-blue">DAWN</span>
+        </h1>
+
+        <p class="hero-copy">Enter, survive, loot, and extract. LauMVP's first released title is available now.</p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://store.steampowered.com/app/3797770/" target="_blank" rel="noopener">
+            <i class="fa-brands fa-steam"></i> View on Steam <span>↗</span>
+          </a>
+          <a class="button button-ghost" href="#games">See what's next</a>
+        </div>
+      </div>
+
+      <div class="scroll-cue" aria-hidden="true"><span>SCROLL</span><i></i></div>
+    </section>
+
+    <section class="manifesto section-pad">
+      <div class="section-kicker reveal">LAUMVP / INDEPENDENT GAME STUDIO</div>
+      <div class="manifesto-grid">
+        <h2 class="reveal">SMALL TEAM.<br><span>BIG IDEAS.</span></h2>
+        <div class="manifesto-copy reveal">
+          <p>We make games with personality: memorable systems, strong atmosphere, and enough weird little details to make the worlds feel like ours.</p>
+          <a class="text-link" href="#about">About the studio <span>→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="games section-pad" id="games" aria-labelledby="games-title">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-kicker">WHAT'S NEXT</div>
+          <h2 id="games-title">NOW IN<br>DEVELOPMENT.</h2>
+        </div>
+        <p>You've seen what we've released. Here's the next world we're building.</p>
+      </div>
+
+      <article class="feature-card highlife-card reveal" id="high-life">
+        <div class="feature-art art-highlife coming-soon-art">
+
+          <div class="coming-soon-lockup" aria-label="High Life coming soon">
+            <div class="coming-steam">
+              <i class="fa-brands fa-steam"></i>
+              <span>COMING TO STEAM</span>
+            </div>
+            <div class="coming-word">COMING</div>
+            <div class="soon-word">SOON</div>
+            <div class="coming-line"></div>
+            <div class="coming-note">HIGH LIFE // CURRENTLY IN DEVELOPMENT</div>
+          </div>
+
+          <div class="art-title">HIGH LIFE</div>
+        </div>
+
+        <div class="feature-info">
+          <div>
+            <span class="status status-dev"><i class="fa-brands fa-steam"></i>&nbsp; COMING SOON</span>
+            <h3>High Life</h3>
+            <p>Cook your product. Build your customer network. Manage inventory, make deals, hide your stash, and stay one step ahead of the police — all in a pixel-art criminal sandbox.</p>
+          </div>
+          <div class="feature-footer">
+            <span>2D / MANAGEMENT / SIMULATION</span>
+            <a href="#contact" class="circle-link" aria-label="Follow High Life updates">↗</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="about-teaser section-pad">
+      <div class="about-teaser-copy reveal">
+        <h2>SMALL STUDIO.<br><span>PLENTY TO SAY.</span></h2>
+        <p>Who we are, what we build, where we started, and all the stuff that definitely does not fit in one tiny homepage section.</p>
+        <a class="button button-ghost about-page-button" href="about.html">Enter the About page <span>↗</span></a>
+      </div>
+    </section>
+
+
+    <section class="contact" id="contact">
+      <div class="contact-watermark" aria-hidden="true">MEOW</div>
+
+      <div class="contact-layout">
+        <div class="contact-copy reveal">
+          <div class="section-kicker">CONTACT THE STUDIO</div>
+          <h2>COME SAY<br><span>HELLO.</span></h2>
+          <p>Press, business inquiries, collaborations, feedback, or just want to talk games?</p>
+          <a class="mail-link" href="mailto:laumvpstudio@gmail.com">laumvpstudio@gmail.com <span>↗</span></a>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm">
+          <div class="field-row">
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" autocomplete="name" required placeholder="Your name">
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" autocomplete="email" required placeholder="you@email.com">
+            </label>
+          </div>
+          <label>
+            <span>Subject</span>
+            <input type="text" name="subject" required placeholder="What is this about?">
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="6" required placeholder="Tell us what's up..."></textarea>
+          </label>
+          <button class="button button-primary submit-button" type="submit">Send message <span>↗</span></button>
+          <p class="form-note">For this prototype, Send Message opens your email app with the form pre-filled. No message or personal data is stored by this website.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand brand-wordmark footer-brand" href="#top">
+      <span class="brand-main">LAUMVP</span>
+      <span class="brand-sub">GAME STUDIO</span>
+    </a>
+    <div class="footer-middle">INDEPENDENT GAMES // MADE WITH CLAWS</div>
+    <span class="copyright">© <span id="year"></span> LAUMVP. ALL RIGHTS RESERVED.</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,3194 @@
+:root{
+  --bg:#111114;
+  --bg-2:#171719;
+  --panel:#1d1c1d;
+  --panel-2:#242223;
+  --cream:#fffdb5;
+  --cream-soft:#eee9a7;
+  --slate:#7194a3;
+  --slate-dark:#426271;
+  --brown:#9a6337;
+  --text:#f5f2eb;
+  --muted:#a7a3a1;
+  --line:rgba(255,253,181,.14);
+  --display:"Barlow Condensed",Impact,sans-serif;
+  --body:"Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit}
+::selection{background:var(--cream);color:#171719}
+.grain{position:fixed;inset:0;z-index:100;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E")}
+.site-header{height:82px;padding:0 clamp(22px,5vw,78px);display:flex;align-items:center;justify-content:space-between;position:absolute;top:0;left:0;width:100%;z-index:20;border-bottom:1px solid var(--line);background:linear-gradient(to bottom,rgba(17,17,20,.82),rgba(17,17,20,.15))}
+.brand{display:flex;align-items:center;gap:10px;font:800 22px/1 var(--display);letter-spacing:.08em}
+.brand-cat{width:42px;height:48px;object-fit:contain;object-position:center;image-rendering:pixelated}
+.nav{display:flex;gap:35px}
+.nav a{position:relative;font:700 11px/1 var(--body);letter-spacing:.15em;text-transform:uppercase;color:#d6d0c6}
+.nav a:after{content:"";position:absolute;left:0;right:100%;bottom:-10px;height:2px;background:var(--cream);transition:right .25s}
+.nav a:hover:after{right:0}
+.menu-toggle{display:none;background:transparent;border:0;width:42px;height:42px;padding:10px;cursor:pointer}
+.menu-toggle span{display:block;height:2px;background:var(--cream);margin:6px 0}
+
+.hero{min-height:100svh;position:relative;display:flex;align-items:center;padding:120px clamp(22px,8vw,130px) 90px;overflow:hidden;background:
+linear-gradient(120deg,#111114 0%,#181719 46%,#152026 100%)}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,17,20,.98) 0%,rgba(17,17,20,.77) 43%,rgba(17,17,20,.05) 70%,rgba(17,17,20,.24) 100%)}
+.hero-grid{position:absolute;inset:-15%;transform:perspective(600px) rotateX(68deg) translateY(47%);transform-origin:center bottom;background-image:linear-gradient(rgba(255,253,181,.075) 1px,transparent 1px),linear-gradient(90deg,rgba(255,253,181,.075) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(to top,#000,transparent 78%)}
+.cream-glow{position:absolute;width:520px;height:520px;right:10%;top:10%;border-radius:50%;background:radial-gradient(circle,rgba(255,253,181,.10),transparent 65%)}
+.blue-glow{position:absolute;width:580px;height:580px;right:-5%;bottom:-10%;border-radius:50%;background:radial-gradient(circle,rgba(113,148,163,.20),transparent 67%)}
+.hero-content{position:relative;z-index:3;max-width:760px}
+.eyebrow,.section-kicker{font:700 10px/1 var(--body);letter-spacing:.20em;text-transform:uppercase;color:#b9b4ad}
+.eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:25px}
+.eyebrow span{width:38px;height:2px;background:var(--cream);box-shadow:0 0 15px rgba(255,253,181,.3)}
+.hero h1{font:900 clamp(95px,14vw,220px)/.66 var(--display);letter-spacing:-.055em;margin:0 0 40px;text-transform:uppercase}
+.hero h1 em{font-style:normal;color:transparent;-webkit-text-stroke:1.5px var(--cream);text-shadow:0 0 30px rgba(255,253,181,.08)}
+.hero-copy{max-width:500px;margin:0 0 35px;color:#bcb6af;font-size:clamp(16px,1.4vw,20px);line-height:1.7}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.button{display:inline-flex;align-items:center;justify-content:center;gap:18px;min-height:52px;padding:15px 22px;border:1px solid var(--line);font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;transition:.22s;cursor:pointer}
+.button-primary{background:var(--cream);border-color:var(--cream);color:#1c1a1b}
+.button-primary:hover{transform:translateY(-2px);box-shadow:0 8px 35px rgba(255,253,181,.12)}
+.button-ghost{background:rgba(255,255,255,.02)}
+.button-ghost:hover{border-color:var(--cream);background:rgba(255,253,181,.05)}
+.hero-cat-wrap{position:absolute;z-index:2;right:8%;bottom:-3%;height:84%;width:min(44vw,650px);display:flex;justify-content:center;align-items:flex-end}
+.hero-cat{position:relative;z-index:2;max-height:94%;max-width:100%;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(0 30px 60px rgba(0,0,0,.5))}
+.cat-halo{position:absolute;width:75%;aspect-ratio:1;top:12%;border:1px solid rgba(255,253,181,.18);border-radius:50%;box-shadow:0 0 100px rgba(113,148,163,.12),inset 0 0 80px rgba(255,253,181,.04)}
+.cat-caption{position:absolute;right:0;bottom:10%;z-index:4;writing-mode:vertical-rl;font-size:8px;letter-spacing:.18em;color:#77716c}
+.scroll-cue{position:absolute;z-index:4;right:4%;bottom:32px;display:flex;align-items:center;gap:14px;color:#77716c;font-size:8px;letter-spacing:.16em}
+.scroll-cue i{width:50px;height:1px;background:#77716c}
+.section-pad{padding:110px clamp(22px,7vw,110px)}
+.manifesto{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.manifesto-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:10vw;align-items:end;margin-top:35px}
+.manifesto h2,.section-head h2,.about h2,.contact h2{font:900 clamp(58px,8vw,118px)/.82 var(--display);letter-spacing:-.035em;margin:0;text-transform:uppercase}
+.manifesto h2 span,.about h2 span,.contact h2 span{color:transparent;-webkit-text-stroke:1.4px var(--cream)}
+.manifesto-copy{max-width:470px}
+.manifesto-copy p,.about-copy p,.contact-copy p{color:var(--muted);font-size:15px;line-height:1.85}
+.text-link{display:inline-flex;gap:28px;margin-top:12px;padding-bottom:8px;border-bottom:1px solid #66615d;font:700 10px var(--body);letter-spacing:.13em;text-transform:uppercase}
+
+.games{background:#141416}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:40px;margin-bottom:48px}
+.section-head .section-kicker{margin-bottom:18px}
+.section-head h2{font-size:clamp(62px,7vw,105px)}
+.section-head>p{width:320px;color:#928d88;line-height:1.7;font-size:13px}
+.feature-card{display:grid;grid-template-columns:1.55fr .8fr;min-height:590px;border:1px solid var(--line);background:var(--panel);overflow:hidden}
+.feature-art{position:relative;overflow:hidden;min-height:590px;isolation:isolate}
+.art-highlife{background:
+radial-gradient(circle at 65% 38%,rgba(255,253,181,.14),transparent 13%),
+radial-gradient(circle at 55% 50%,rgba(113,148,163,.17),transparent 35%),
+linear-gradient(135deg,#171719,#202124 55%,#172128)}
+.art-highlife:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 5px,rgba(255,253,181,.025) 5px 6px);pointer-events:none}
+.corner-label{position:absolute;left:22px;top:22px;z-index:4;font:700 8px var(--body);letter-spacing:.17em;color:#c4beb6}
+.phone{position:absolute;z-index:2;width:250px;height:475px;border:9px solid #302d2e;border-radius:38px;left:55%;top:50%;transform:translate(-50%,-50%) rotate(7deg);background:#111316;box-shadow:25px 35px 70px rgba(0,0,0,.4),0 0 0 1px #625b54}
+.phone-speaker{width:62px;height:5px;border-radius:10px;background:#4a4543;position:absolute;left:50%;top:16px;transform:translateX(-50%)}
+.phone-screen{position:absolute;inset:34px 11px 15px;border-radius:24px;padding:36px 18px;background:linear-gradient(160deg,#253842,#11191d 68%);border:1px solid #3d5660}
+.signal{position:absolute;right:17px;top:14px;color:var(--cream);letter-spacing:2px}
+.message{padding:13px 14px;border:1px solid rgba(255,253,181,.20);background:rgba(255,253,181,.06);font:800 15px var(--display);letter-spacing:.08em;margin-bottom:15px}
+.message.one{color:var(--cream);margin-top:45px}
+.message.two{color:#b8cbd3}
+.message.three{font-size:48px;text-align:center;border:0;background:transparent;color:#f0ebe3;margin-top:65px}
+.art-title{position:absolute;left:3%;bottom:-.06em;z-index:1;font:900 clamp(145px,18vw,280px)/.72 var(--display);letter-spacing:-.06em;color:rgba(255,253,181,.035);white-space:nowrap}
+.feature-info{padding:50px;display:flex;flex-direction:column;justify-content:space-between}
+.status{display:inline-flex;padding:7px 9px;border:1px solid #59534f;color:#aaa49e;font-size:8px;font-weight:800;letter-spacing:.16em}
+.status-dev{border-color:rgba(255,253,181,.38);color:var(--cream)}
+.status-live{border-color:rgba(113,148,163,.65);color:#a7cad8}
+.feature-info h3,.zpd-copy h3{font:900 clamp(48px,5vw,78px)/.85 var(--display);text-transform:uppercase;margin:23px 0 20px}
+.feature-info p,.zpd-copy p{color:#96908b;font-size:14px;line-height:1.8;max-width:410px}
+.feature-footer{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;align-items:center}
+.feature-footer>span{font-size:8px;font-weight:700;letter-spacing:.14em;color:#716c68}
+.circle-link{width:46px;height:46px;border:1px solid #59534f;border-radius:50%;display:grid;place-items:center;transition:.2s}
+.circle-link:hover{background:var(--cream);color:#171719;border-color:var(--cream);transform:rotate(8deg)}
+
+.zpd-card{display:grid;grid-template-columns:.82fr 1.5fr;min-height:530px;margin-top:18px;border:1px solid var(--line);background:#17191b;overflow:hidden}
+.zpd-copy{padding:50px;display:flex;flex-direction:column;justify-content:center}
+.zpd-copy h3 span{color:var(--slate)}
+.game-tags{display:flex;gap:8px;margin-top:25px;flex-wrap:wrap}
+.game-tags span{padding:7px 9px;border:1px solid var(--line);font-size:8px;font-weight:700;letter-spacing:.15em;color:#817d79}
+.zpd-art{position:relative;overflow:hidden;background:
+radial-gradient(circle at 68% 47%,rgba(113,148,163,.28),transparent 22%),
+linear-gradient(135deg,#10191d,#13242b 55%,#101517)}
+.scanlines{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 5px,rgba(159,207,226,.035) 5px 6px)}
+.pixel-blocks{position:absolute;width:320px;height:320px;right:18%;top:18%;border:22px solid rgba(113,148,163,.08);box-shadow:-65px 65px 0 rgba(255,253,181,.025),65px -65px 0 rgba(255,253,181,.03);transform:rotate(45deg)}
+.zpd-word{position:absolute;left:4%;bottom:-.04em;font:900 clamp(160px,20vw,320px)/.7 var(--display);color:rgba(255,255,255,.035);letter-spacing:-.07em}
+.zpd-button{position:absolute;right:28px;bottom:28px}
+
+.about{display:grid;grid-template-columns:.28fr 1.15fr .5fr;gap:7vw;align-items:center;min-height:680px;background:linear-gradient(120deg,#111114,#191818)}
+.about-number{align-self:start;font:600 13px var(--display);color:#625f5b}
+.about-copy .section-kicker{margin-bottom:25px}
+.about h2{font-size:clamp(60px,7.3vw,110px)}
+.about-copy p{max-width:650px;margin-top:33px}
+.about-mascot{height:430px;display:flex;justify-content:center;align-items:center;border-left:1px solid var(--line)}
+.about-mascot img{max-width:100%;max-height:100%;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(0 22px 30px rgba(0,0,0,.3))}
+
+.social-section{border-top:1px solid var(--line);background:#151517}
+.social-grid{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.social-card{min-height:205px;padding:24px;display:grid;grid-template-columns:1fr auto;grid-template-rows:1fr auto;gap:20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:.2s}
+.social-card i{font-size:35px;color:var(--cream)}
+.social-card span{font:800 26px var(--display);text-transform:uppercase;align-self:end}
+.social-card b{font-size:18px;font-weight:400;align-self:end}
+.social-card:hover{background:var(--cream);color:#171719;transform:translateY(-5px)}
+.social-card:hover i{color:#171719}
+
+.contact{position:relative;overflow:hidden;padding:120px clamp(22px,7vw,110px);background:
+radial-gradient(circle at 30% 50%,rgba(113,148,163,.12),transparent 28%),
+#101012;border-top:1px solid var(--line)}
+.contact-watermark{position:absolute;right:-4%;bottom:-10%;font:900 30vw/.7 var(--display);color:rgba(255,253,181,.018);letter-spacing:-.07em}
+.contact-layout{position:relative;z-index:2;display:grid;grid-template-columns:.8fr 1fr;gap:10vw;align-items:center}
+.contact-copy .section-kicker{margin-bottom:27px}
+.contact h2{font-size:clamp(75px,9vw,140px)}
+.contact-copy p{max-width:450px;margin:30px 0 24px}
+.mail-link{display:inline-flex;gap:15px;padding-bottom:8px;border-bottom:1px solid var(--cream);color:var(--cream);font-size:13px}
+.contact-form{display:grid;gap:22px;padding:36px;border:1px solid var(--line);background:rgba(255,255,255,.018);backdrop-filter:blur(8px)}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.contact-form label{display:grid;gap:9px}
+.contact-form label>span{font-size:8px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#8f8a85}
+.contact-form input,.contact-form textarea{width:100%;border:1px solid #403d3b;background:#141416;color:var(--text);padding:14px 15px;outline:none;resize:vertical;border-radius:0}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--cream)}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:#575452}
+.submit-button{justify-self:start;border:0}
+.form-note{margin:0;color:#6d6966;font-size:9px;line-height:1.6}
+
+footer{min-height:150px;border-top:1px solid var(--line);padding:38px clamp(22px,5vw,78px);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:30px}
+.footer-middle{font-size:8px;letter-spacing:.16em;color:#68635f}
+.copyright{text-align:right;font-size:8px;letter-spacing:.11em;color:#68635f}
+
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:1050px){
+  .social-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:900px){
+  .site-header{height:70px}
+  .menu-toggle{display:block;position:relative;z-index:31}
+  .nav{position:fixed;inset:0;background:#111114;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;opacity:0;pointer-events:none;transition:.25s}
+  .nav.open{opacity:1;pointer-events:auto}
+  .nav a{font:800 42px var(--display)}
+  .hero{align-items:flex-start;padding-top:150px}
+  .hero:after{background:linear-gradient(180deg,rgba(17,17,20,.93) 0%,rgba(17,17,20,.72) 65%,rgba(17,17,20,.12) 100%)}
+  .hero-content{z-index:4}
+  .hero-cat-wrap{height:57%;width:72vw;right:-10%;opacity:.58}
+  .cat-caption,.scroll-cue{display:none}
+  .manifesto-grid,.feature-card,.zpd-card,.about,.contact-layout{grid-template-columns:1fr}
+  .manifesto-grid{gap:45px}
+  .feature-art{min-height:500px}
+  .feature-info{min-height:420px;padding:35px}
+  .zpd-art{min-height:420px}
+  .about{gap:42px}
+  .about-mascot{border-left:0;border-top:1px solid var(--line);padding-top:30px}
+  footer{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .copyright{text-align:center}
+}
+@media(max-width:650px){
+  .section-pad{padding:80px 20px}
+  .hero{padding-left:20px;padding-right:20px}
+  .hero h1{font-size:30vw}
+  .hero-actions .button{width:100%}
+  .hero-cat-wrap{right:-25%;width:95vw}
+  .section-head{display:block}
+  .section-head>p{width:auto;margin-top:22px}
+  .feature-art{min-height:400px}
+  .phone{width:190px;height:380px}
+  .message.three{font-size:38px;margin-top:35px}
+  .zpd-copy{padding:34px}
+  .social-grid{grid-template-columns:1fr 1fr}
+  .social-card{min-height:160px}
+  .field-row{grid-template-columns:1fr}
+  .contact{padding:90px 20px}
+  .contact-form{padding:24px 20px}
+}
+@media(max-width:420px){
+  .social-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*:before,*:after{transition:none!important;animation:none!important}
+  .reveal{opacity:1;transform:none}
+}
+
+
+/* =========================
+   V3 refinement layer
+   ========================= */
+
+.site-header{
+  position:absolute;
+  height:94px;
+  backdrop-filter: blur(5px);
+}
+.brand-wordmark{
+  display:grid;
+  gap:4px;
+  font-family:var(--body);
+  letter-spacing:0;
+}
+.brand-main{
+  font:800 19px/1 var(--body);
+  letter-spacing:.10em;
+  color:#fffdf5;
+}
+.brand-sub{
+  font:700 7px/1 var(--body);
+  letter-spacing:.30em;
+  color:var(--cream);
+}
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:25px;
+}
+.header-socials{
+  display:flex;
+  align-items:center;
+  gap:4px;
+  padding-left:20px;
+  border-left:1px solid var(--line);
+}
+.header-socials a{
+  width:31px;
+  height:31px;
+  display:grid;
+  place-items:center;
+  border:1px solid transparent;
+  color:#9c9892;
+  font-size:13px;
+  transition:transform .18s ease,color .18s ease,border-color .18s ease,background .18s ease;
+}
+.header-socials a:hover{
+  color:#171719;
+  background:var(--cream);
+  border-color:var(--cream);
+  transform:translateY(-3px);
+}
+
+/* HIGH LIFE gets breathing room instead of colliding. */
+.hero h1{
+  display:flex;
+  flex-direction:column;
+  gap:clamp(7px,1.2vw,18px);
+  line-height:.72;
+  letter-spacing:-.035em;
+  width:max-content;
+}
+.hero-high,.hero-life{
+  display:block;
+}
+.hero-life{
+  color:transparent;
+  -webkit-text-stroke:1.7px var(--cream);
+  text-shadow:0 0 30px rgba(255,253,181,.07);
+  padding-bottom:.07em;
+}
+
+/* A little more movement/energy without turning it into a carnival. */
+.hero-sweep{
+  position:absolute;
+  z-index:1;
+  width:34vw;
+  height:160%;
+  left:45%;
+  top:-30%;
+  transform:rotate(17deg) translateX(-180%);
+  background:linear-gradient(90deg,transparent,rgba(255,253,181,.045),rgba(113,148,163,.055),transparent);
+  filter:blur(4px);
+  animation:heroSweep 8s ease-in-out infinite;
+}
+@keyframes heroSweep{
+  0%,18%{transform:rotate(17deg) translateX(-180%)}
+  48%,100%{transform:rotate(17deg) translateX(330%)}
+}
+.hero-crosshair{
+  position:absolute;
+  z-index:1;
+  width:23px;
+  height:23px;
+  opacity:.20;
+}
+.hero-crosshair:before,.hero-crosshair:after{
+  content:"";
+  position:absolute;
+  background:var(--cream);
+}
+.hero-crosshair:before{width:23px;height:1px;left:0;top:11px}
+.hero-crosshair:after{width:1px;height:23px;left:11px;top:0}
+.crosshair-one{right:36%;top:23%;animation:floatCross 5s ease-in-out infinite}
+.crosshair-two{right:12%;bottom:25%;transform:scale(.65);animation:floatCross 6.5s ease-in-out infinite reverse}
+@keyframes floatCross{
+  0%,100%{translate:0 0;opacity:.12}
+  50%{translate:0 -13px;opacity:.28}
+}
+.hero-grid{animation:gridDrift 14s linear infinite}
+@keyframes gridDrift{
+  from{background-position:0 0,0 0}
+  to{background-position:0 72px,72px 0}
+}
+.button-primary{
+  position:relative;
+  overflow:hidden;
+}
+.button-primary:after{
+  content:"";
+  position:absolute;
+  inset:-40% auto -40% -45%;
+  width:28%;
+  transform:skewX(-18deg);
+  background:rgba(255,255,255,.58);
+  filter:blur(4px);
+  transition:left .45s ease;
+}
+.button-primary:hover:after{left:125%}
+
+.studio-joke{
+  width:max-content;
+  margin:13px 0 0 auto;
+  padding-right:1.5%;
+  font:600 10px/1 var(--body);
+  letter-spacing:.10em;
+  color:#716d68;
+  text-transform:lowercase;
+  transform:rotate(-2deg);
+}
+
+/* Mouse glow and scroll indicator: desktop only, JS-driven. */
+.cursor-glow{
+  position:fixed;
+  z-index:0;
+  left:0;
+  top:0;
+  width:430px;
+  height:430px;
+  border-radius:50%;
+  pointer-events:none;
+  opacity:0;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(255,253,181,.055),rgba(113,148,163,.028) 32%,transparent 68%);
+  transition:opacity .25s ease;
+}
+.scroll-progress{
+  position:fixed;
+  z-index:150;
+  left:0;
+  top:0;
+  height:2px;
+  width:var(--scroll-progress,0%);
+  background:linear-gradient(90deg,var(--slate),var(--cream));
+  box-shadow:0 0 12px rgba(255,253,181,.22);
+}
+
+/* More depth on game panels. */
+.feature-card,.zpd-card,.contact-form{
+  transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease;
+}
+.feature-card:hover,.zpd-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(255,253,181,.24);
+  box-shadow:0 22px 70px rgba(0,0,0,.18);
+}
+.phone{
+  animation:phoneFloat 5.5s ease-in-out infinite;
+}
+@keyframes phoneFloat{
+  0%,100%{transform:translate(-50%,-50%) rotate(7deg)}
+  50%{transform:translate(-50%,-53%) rotate(5deg)}
+}
+.message.one{animation:messagePulse 2.6s ease-in-out infinite}
+@keyframes messagePulse{
+  0%,100%{box-shadow:0 0 0 rgba(255,253,181,0)}
+  50%{box-shadow:0 0 22px rgba(255,253,181,.08)}
+}
+
+/* Old full socials block is no longer used in V3. */
+.social-section{display:none}
+
+@media(max-width:1050px){
+  .header-right{gap:14px}
+  .nav{gap:22px}
+  .header-socials{padding-left:12px}
+  .header-socials a{width:28px;height:28px}
+}
+@media(max-width:900px){
+  .site-header{height:76px}
+  .header-right{
+    position:fixed;
+    inset:0;
+    z-index:30;
+    background:#111114;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:28px;
+    opacity:0;
+    pointer-events:none;
+    transition:.25s;
+  }
+  .header-right.open{opacity:1;pointer-events:auto}
+  .nav{
+    position:static;
+    inset:auto;
+    background:transparent;
+    opacity:1;
+    pointer-events:auto;
+    flex-direction:column;
+    gap:27px;
+  }
+  .nav a{font:800 42px var(--display)}
+  .header-socials{
+    border-left:0;
+    border-top:1px solid var(--line);
+    padding:22px 0 0;
+    gap:10px;
+  }
+  .header-socials a{
+    width:39px;
+    height:39px;
+    font-size:17px;
+    border-color:var(--line);
+  }
+  .brand-wordmark{position:relative;z-index:32}
+  .hero h1{gap:10px}
+}
+@media(max-width:650px){
+  .hero h1{
+    width:auto;
+    font-size:28vw;
+    line-height:.73;
+  }
+  .studio-joke{margin-top:10px}
+  .cursor-glow{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-grid,.hero-sweep,.hero-crosshair,.phone,.message.one{animation:none!important}
+}
+
+
+/* =========================
+   V4 Zero Pixel Dawn pass
+   ========================= */
+
+.steam-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:#d9eff8;
+  border-color:rgba(113,148,163,.72);
+  background:rgba(10,16,18,.46);
+  backdrop-filter:blur(4px);
+}
+.steam-badge i{
+  font-size:12px;
+}
+
+.zpd-card{
+  position:relative;
+  min-height:620px;
+  margin-top:18px;
+  border:1px solid var(--line);
+  background:#111416;
+  overflow:hidden;
+  isolation:isolate;
+}
+
+.zpd-bg-wrap{
+  position:absolute;
+  inset:0;
+  z-index:0;
+}
+
+.zpd-bg-image{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  image-rendering:pixelated;
+  display:block;
+  transform:scale(1.02);
+}
+
+.zpd-bg-overlay{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg, rgba(10,12,17,.92) 0%, rgba(10,12,17,.74) 28%, rgba(10,12,17,.24) 58%, rgba(10,12,17,.55) 100%),
+    linear-gradient(180deg, rgba(10,12,17,.10), rgba(10,12,17,.30));
+}
+
+.zpd-overlay-content{
+  position:relative;
+  z-index:1;
+  min-height:620px;
+  display:grid;
+  grid-template-rows:auto 1fr auto;
+  padding:46px 48px 40px;
+}
+
+.zpd-topline{
+  display:flex;
+  align-items:flex-start;
+  justify-content:flex-start;
+}
+
+.zpd-copy{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  max-width:520px;
+}
+
+.zpd-copy h3{
+  font:900 clamp(56px,7vw,116px)/.86 var(--display);
+  text-transform:uppercase;
+  margin:0 0 22px;
+  letter-spacing:-.045em;
+  text-shadow:0 16px 35px rgba(0,0,0,.35);
+}
+
+.zpd-copy h3 span{
+  color:var(--slate);
+}
+
+.zpd-copy p{
+  max-width:480px;
+  margin:0 0 28px;
+  color:#d0cbc6;
+  font-size:15px;
+  line-height:1.8;
+  text-shadow:0 5px 18px rgba(0,0,0,.38);
+}
+
+.game-tags{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.game-tags span{
+  padding:8px 11px;
+  border:1px solid rgba(255,253,181,.20);
+  background:rgba(10,12,17,.32);
+  backdrop-filter:blur(4px);
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:#ddd8cf;
+}
+
+.zpd-button{
+  justify-self:start;
+  align-self:end;
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+}
+
+.zpd-button i{
+  font-size:14px;
+}
+
+/* old abstract-art styles are no longer used but these guards keep weird artifacts away */
+.zpd-art,.pixel-blocks,.zpd-word{
+  display:none !important;
+}
+
+@media(max-width:900px){
+  .zpd-card,
+  .zpd-overlay-content{
+    min-height:580px;
+  }
+  .zpd-overlay-content{
+    padding:34px 34px 32px;
+  }
+  .zpd-copy{
+    max-width:100%;
+  }
+}
+
+@media(max-width:650px){
+  .zpd-card,
+  .zpd-overlay-content{
+    min-height:520px;
+  }
+  .zpd-copy h3{
+    font-size:22vw;
+  }
+  .zpd-copy p{
+    font-size:14px;
+    max-width:100%;
+  }
+  .zpd-button{
+    width:100%;
+    justify-self:stretch;
+    justify-content:center;
+  }
+}
+
+
+/* =========================
+   V5 — released first + Steam clarity + High Life coming soon
+   ========================= */
+
+/* Hero's Coming Soon to Steam notice */
+.hero-steam-coming{
+  color:#e9e3da;
+  gap:10px;
+  font-size:11px;
+}
+.hero-steam-coming .eyebrow-line{
+  width:38px;
+  height:2px;
+  background:var(--cream);
+  box-shadow:0 0 15px rgba(255,253,181,.3);
+}
+.hero-steam-coming i{
+  color:#dcecf2;
+  font-size:15px;
+  margin-left:2px;
+}
+
+/* Socials: Discord remains visible but intentionally disabled until an invite URL exists. */
+.header-socials .social-disabled{
+  width:31px;
+  height:31px;
+  display:grid;
+  place-items:center;
+  color:#55514e;
+  font-size:13px;
+  cursor:not-allowed;
+  opacity:.55;
+}
+
+/* Steam badge on ZPD — deliberately larger/readable on desktop. */
+.steam-available-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 16px;
+  border:1px solid rgba(160,204,221,.70);
+  background:rgba(7,12,15,.58);
+  backdrop-filter:blur(6px);
+  color:#e9f6fb;
+  font:800 11px/1 var(--body);
+  letter-spacing:.12em;
+  box-shadow:0 6px 28px rgba(0,0,0,.12);
+}
+.steam-available-badge i{
+  font-size:19px;
+  line-height:1;
+  display:grid;
+  place-items:center;
+}
+
+/* Explicit vertical centering for the Steam CTA contents. */
+.zpd-button{
+  min-height:58px;
+  padding:0 22px;
+  display:inline-flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  line-height:1;
+}
+.zpd-button i,
+.zpd-button-label,
+.zpd-button .button-arrow{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  line-height:1;
+}
+.zpd-button i{
+  font-size:17px;
+  width:18px;
+  height:18px;
+}
+.zpd-button .button-arrow{
+  font-size:14px;
+  margin-left:4px;
+  transform:translateY(-1px);
+}
+
+/* ZPD leads the game list now. Give the High Life card separation below it. */
+.highlife-card{
+  margin-top:18px;
+}
+
+/* Remove the prototype phone completely. */
+.highlife-card .phone,
+.highlife-card .phone-screen,
+.highlife-card .phone-speaker,
+.highlife-card .message,
+.highlife-card .signal{
+  display:none !important;
+}
+
+/* High Life visual: large typography instead of fake prototype phone. */
+.coming-soon-art{
+  display:grid;
+  place-items:center;
+  background:
+    radial-gradient(circle at 53% 43%,rgba(255,253,181,.075),transparent 17%),
+    radial-gradient(circle at 50% 50%,rgba(113,148,163,.15),transparent 39%),
+    linear-gradient(135deg,#171719,#1b2225 55%,#151719);
+}
+.coming-soon-art:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,transparent 49.8%,rgba(255,253,181,.045) 50%,transparent 50.2%),
+    linear-gradient(0deg,transparent 49.8%,rgba(255,253,181,.035) 50%,transparent 50.2%);
+  background-size:95px 95px;
+  opacity:.45;
+}
+.coming-soon-lockup{
+  position:relative;
+  z-index:3;
+  width:min(78%,760px);
+  text-align:center;
+  padding:48px 20px;
+}
+.coming-steam{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:20px;
+  color:#d9e9ef;
+  font:700 9px/1 var(--body);
+  letter-spacing:.19em;
+}
+.coming-steam i{
+  font-size:17px;
+}
+.coming-word,
+.soon-word{
+  font:900 clamp(84px,11vw,175px)/.66 var(--display);
+  letter-spacing:-.035em;
+  text-transform:uppercase;
+}
+.coming-word{
+  color:#f6f2ea;
+}
+.soon-word{
+  color:transparent;
+  -webkit-text-stroke:1.7px var(--cream);
+  text-shadow:0 0 32px rgba(255,253,181,.08);
+  margin-top:20px;
+}
+.coming-line{
+  width:95px;
+  height:2px;
+  margin:38px auto 17px;
+  background:linear-gradient(90deg,var(--slate),var(--cream));
+  box-shadow:0 0 20px rgba(255,253,181,.16);
+  animation:comingLinePulse 3s ease-in-out infinite;
+}
+.coming-note{
+  font:700 8px/1 var(--body);
+  letter-spacing:.18em;
+  color:#8f8984;
+}
+@keyframes comingLinePulse{
+  0%,100%{width:70px;opacity:.5}
+  50%{width:130px;opacity:1}
+}
+
+/* Small Steam icon in High Life status */
+.status-dev i{
+  font-size:11px;
+  vertical-align:middle;
+}
+
+/* High Life now follows ZPD, so preserve visual hierarchy. */
+.zpd-card{
+  margin-top:0;
+}
+
+@media(max-width:900px){
+  .steam-available-badge{
+    font-size:10px;
+    padding:11px 14px;
+  }
+  .steam-available-badge i{
+    font-size:17px;
+  }
+  .coming-soon-lockup{
+    width:90%;
+  }
+}
+@media(max-width:650px){
+  .steam-available-badge{
+    gap:9px;
+    font-size:9px;
+    letter-spacing:.10em;
+  }
+  .zpd-button{
+    min-height:58px;
+  }
+  .coming-word,.soon-word{
+    font-size:24vw;
+  }
+  .coming-soon-art{
+    min-height:420px;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .coming-line{animation:none!important}
+}
+
+
+/* =========================
+   V6 — Zero Pixel Dawn leads the whole site
+   ========================= */
+
+.zpd-hero{
+  background:#0c1115;
+  isolation:isolate;
+}
+.zpd-hero-image-wrap{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+}
+.zpd-hero-image{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+  image-rendering:pixelated;
+  transform:scale(1.035);
+  animation:zpdHeroBreath 14s ease-in-out infinite alternate;
+}
+@keyframes zpdHeroBreath{
+  from{transform:scale(1.035)}
+  to{transform:scale(1.075)}
+}
+.zpd-hero-shade{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:
+    linear-gradient(90deg,rgba(7,10,15,.97) 0%,rgba(7,10,15,.88) 27%,rgba(7,10,15,.48) 48%,rgba(7,10,15,.18) 73%,rgba(7,10,15,.36) 100%),
+    linear-gradient(180deg,rgba(7,10,15,.22),rgba(7,10,15,.30));
+}
+.zpd-hero .hero-grid{
+  z-index:2;
+  opacity:.18;
+}
+.zpd-hero .hero-sweep{
+  z-index:2;
+  opacity:.55;
+}
+.zpd-hero .hero-content{
+  z-index:4;
+  max-width:690px;
+}
+.zpd-hero-steam{
+  color:#edf7fb;
+  font-size:11px;
+}
+.zpd-hero-steam i{
+  color:#d8eef6;
+  font-size:16px;
+}
+.zpd-hero-title{
+  display:flex !important;
+  flex-direction:column;
+  gap:0 !important;
+  width:max-content;
+  margin:0 0 34px !important;
+  font:900 clamp(88px,11.5vw,178px)/.69 var(--display) !important;
+  letter-spacing:-.045em !important;
+  text-shadow:0 18px 55px rgba(0,0,0,.43);
+}
+.zpd-hero-title > span{
+  display:block;
+  color:#f5f1e9;
+}
+.zpd-hero-title .zpd-blue{
+  color:#7d9eac;
+}
+.zpd-hero .hero-copy{
+  color:#d3cec8;
+  max-width:540px;
+  text-shadow:0 5px 20px rgba(0,0,0,.45);
+}
+.zpd-hero .button-primary i{
+  font-size:16px;
+}
+.hero-release-stamp{
+  position:absolute;
+  z-index:5;
+  right:5%;
+  bottom:7%;
+  width:120px;
+  padding:16px 14px;
+  border-top:1px solid rgba(255,253,181,.28);
+  border-bottom:1px solid rgba(255,253,181,.18);
+  display:grid;
+  gap:2px;
+  text-align:right;
+  background:rgba(8,12,15,.18);
+  backdrop-filter:blur(4px);
+}
+.hero-release-stamp span,
+.hero-release-stamp small{
+  font:700 7px/1 var(--body);
+  letter-spacing:.17em;
+  color:#9f9992;
+}
+.hero-release-stamp strong{
+  font:900 56px/.9 var(--display);
+  color:var(--cream);
+}
+
+/* Since High Life is the only card after the hero, give it a little more arrival energy. */
+.highlife-card{
+  margin-top:0;
+}
+.highlife-card:hover .coming-word{
+  text-shadow:0 0 32px rgba(255,253,181,.06);
+}
+.highlife-card:hover .soon-word{
+  text-shadow:0 0 38px rgba(255,253,181,.13);
+}
+
+@media(max-width:900px){
+  .zpd-hero-shade{
+    background:
+      linear-gradient(180deg,rgba(7,10,15,.82) 0%,rgba(7,10,15,.72) 55%,rgba(7,10,15,.35) 100%),
+      linear-gradient(90deg,rgba(7,10,15,.55),rgba(7,10,15,.12));
+  }
+  .zpd-hero-title{
+    font-size:clamp(82px,21vw,150px) !important;
+  }
+  .hero-release-stamp{
+    display:none;
+  }
+}
+@media(max-width:650px){
+  .zpd-hero-title{
+    font-size:25vw !important;
+  }
+  .zpd-hero-image{
+    object-position:58% center;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .zpd-hero-image{animation:none!important}
+}
+
+
+/* =========================
+   V7 — lower ZPD hero artwork so the monster head clears the header
+   ========================= */
+
+/*
+Problem addressed:
+The Zero Pixel Dawn hero image was sitting too high behind the top navigation,
+so the monster head was partially hidden under the header/tabs.
+
+Fix:
+Start the hero artwork below the header line and bias the crop slightly upward
+so more of the monster area remains visible.
+*/
+.zpd-hero-image-wrap{
+  inset:84px 0 0 0 !important;
+}
+
+.zpd-hero-image{
+  object-position:center 14% !important;
+}
+
+@media(max-width:900px){
+  .zpd-hero-image-wrap{
+    inset:70px 0 0 0 !important;
+  }
+
+  .zpd-hero-image{
+    object-position:center 18% !important;
+  }
+}
+
+@media(max-width:650px){
+  .zpd-hero-image-wrap{
+    inset:68px 0 0 0 !important;
+  }
+
+  .zpd-hero-image{
+    object-position:58% 18% !important;
+  }
+}
+
+
+/* =========================
+   V8 — push ZPD artwork farther down
+   ========================= */
+
+/*
+The source artwork itself touches the top edge, so a small crop adjustment
+wasn't enough. This moves the entire artwork viewport substantially lower.
+*/
+.zpd-hero-image-wrap{
+  inset:150px 0 0 0 !important;
+}
+
+.zpd-hero-image{
+  object-position:center top !important;
+}
+
+@media(max-width:900px){
+  .zpd-hero-image-wrap{
+    inset:118px 0 0 0 !important;
+  }
+
+  .zpd-hero-image{
+    object-position:center top !important;
+  }
+}
+
+@media(max-width:650px){
+  .zpd-hero-image-wrap{
+    inset:105px 0 0 0 !important;
+  }
+
+  .zpd-hero-image{
+    object-position:58% top !important;
+  }
+}
+
+
+/* =========================
+   V9 — hero + navigation refinement
+   ========================= */
+
+/* Restore ZPD artwork to the normal full-screen hero position.
+   The clipped monster head is part of the supplied source image. */
+.zpd-hero-image-wrap{
+  inset:0 !important;
+}
+.zpd-hero-image{
+  object-position:center center !important;
+}
+
+/* Freeze the top bar so navigation/socials stay visible while scrolling. */
+.site-header{
+  position:fixed !important;
+  top:0;
+  left:0;
+  right:0;
+  width:100%;
+  z-index:200;
+  background:rgba(17,17,20,.88) !important;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  box-shadow:0 1px 0 rgba(255,253,181,.10);
+}
+
+/* Slightly smaller Zero Pixel Dawn hero title. */
+.zpd-hero-title{
+  font-size:clamp(78px,10.1vw,156px) !important;
+}
+
+/* More obvious Steam availability treatment. */
+.zpd-hero-steam{
+  font-size:13px !important;
+  letter-spacing:.16em;
+  gap:12px !important;
+}
+.zpd-hero-steam i{
+  font-size:21px !important;
+}
+.zpd-hero-steam .eyebrow-line{
+  width:46px;
+}
+
+/* Remove the little SCROLL ____ helper. */
+.scroll-cue{
+  display:none !important;
+}
+
+/* Give the slogan more presence. */
+.footer-middle{
+  color:#f5f2eb !important;
+  font-size:11px !important;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+@media(max-width:900px){
+  .zpd-hero-image-wrap{
+    inset:0 !important;
+  }
+  .zpd-hero-image{
+    object-position:center center !important;
+  }
+  .zpd-hero-title{
+    font-size:clamp(74px,19vw,135px) !important;
+  }
+  .zpd-hero-steam{
+    font-size:11px !important;
+  }
+  .zpd-hero-steam i{
+    font-size:18px !important;
+  }
+}
+
+@media(max-width:650px){
+  .zpd-hero-image{
+    object-position:58% center !important;
+  }
+  .zpd-hero-title{
+    font-size:22vw !important;
+  }
+  .footer-middle{
+    font-size:10px !important;
+  }
+}
+
+
+/* =========================
+   V10 — header/image boundary + CTA + real About page
+   ========================= */
+
+:root{
+  --header-h:94px;
+}
+
+/* The hero artwork begins EXACTLY at the lower edge of the frozen header.
+   No ZPD image is physically underneath the navigation anymore. */
+.zpd-hero-image-wrap{
+  inset:var(--header-h) 0 0 0 !important;
+}
+.zpd-hero-image{
+  object-position:center center !important;
+}
+
+/* More attractive Steam CTA:
+   still uses the mascot palette, but with contrast, depth and motion. */
+.zpd-hero .button-primary,
+.steam-cta{
+  min-height:58px;
+  padding:0 20px 0 12px;
+  gap:14px;
+  color:#151619;
+  border:1px solid rgba(255,253,181,.95);
+  background:
+    linear-gradient(120deg,#fffdb5 0%,#f0ee9f 58%,#b8d1d7 100%);
+  box-shadow:
+    0 10px 34px rgba(0,0,0,.22),
+    0 0 0 1px rgba(255,253,181,.06),
+    inset 0 1px 0 rgba(255,255,255,.62);
+  clip-path:polygon(0 0,93% 0,100% 28%,100% 100%,0 100%);
+}
+.zpd-hero .button-primary i{
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#15191d;
+  color:#fffdb5;
+  font-size:17px !important;
+  box-shadow:0 3px 12px rgba(0,0,0,.24);
+}
+.zpd-hero .button-primary:hover,
+.steam-cta:hover{
+  transform:translateY(-3px);
+  box-shadow:
+    0 15px 44px rgba(0,0,0,.28),
+    0 0 26px rgba(255,253,181,.12);
+}
+.zpd-hero .button-primary:before,
+.steam-cta:before{
+  content:"";
+  position:absolute;
+  left:46px;
+  top:0;
+  bottom:0;
+  width:1px;
+  background:rgba(21,22,25,.13);
+}
+
+/* Home About becomes a teaser because About now has its own page. */
+.about-teaser{
+  min-height:540px;
+  display:grid;
+  grid-template-columns:.28fr 1fr;
+  gap:7vw;
+  align-items:center;
+  border-top:1px solid var(--line);
+  background:
+    radial-gradient(circle at 82% 50%,rgba(113,148,163,.10),transparent 25%),
+    linear-gradient(120deg,#111114,#191818);
+}
+.about-teaser-number{
+  align-self:start;
+  font:700 10px/1 var(--body);
+  letter-spacing:.16em;
+  color:#68635f;
+}
+.about-teaser-copy{
+  max-width:970px;
+}
+.about-teaser-copy .section-kicker{
+  margin-bottom:25px;
+}
+.about-teaser-copy h2{
+  font:900 clamp(62px,7.7vw,116px)/.82 var(--display);
+  letter-spacing:-.035em;
+  margin:0;
+  text-transform:uppercase;
+}
+.about-teaser-copy h2 span{
+  color:transparent;
+  -webkit-text-stroke:1.4px var(--cream);
+}
+.about-teaser-copy p{
+  max-width:650px;
+  margin:30px 0;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.85;
+}
+.about-page-button{
+  width:max-content;
+}
+
+/* -------------------------
+   About page
+   ------------------------- */
+.nav-active{
+  color:var(--cream) !important;
+}
+.about-main{
+  padding-top:var(--header-h);
+}
+.about-hero{
+  min-height:calc(100svh - var(--header-h));
+  position:relative;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  align-items:center;
+  gap:5vw;
+  padding:90px clamp(22px,7vw,110px);
+  background:
+    radial-gradient(circle at 76% 47%,rgba(113,148,163,.16),transparent 25%),
+    linear-gradient(120deg,#111114,#171719 60%,#142027);
+}
+.about-hero-grid{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.42;
+  background-image:
+    linear-gradient(rgba(255,253,181,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,253,181,.035) 1px,transparent 1px);
+  background-size:75px 75px;
+  mask-image:linear-gradient(90deg,#000,transparent 72%);
+}
+.about-hero-copy,
+.about-hero-cat{
+  position:relative;
+  z-index:2;
+}
+.about-hero-copy .section-kicker{
+  margin-bottom:28px;
+}
+.about-hero-copy h1{
+  font:900 clamp(70px,8.5vw,132px)/.80 var(--display);
+  letter-spacing:-.035em;
+  text-transform:uppercase;
+  margin:0;
+}
+.about-hero-copy h1 span{
+  color:transparent;
+  -webkit-text-stroke:1.5px var(--cream);
+}
+.about-joke{
+  margin:14px 3% 0 auto;
+}
+.about-hero-copy>p{
+  max-width:700px;
+  margin-top:34px;
+  color:#aaa49e;
+  font-size:16px;
+  line-height:1.85;
+}
+.about-hero-cat{
+  min-height:560px;
+  display:grid;
+  place-items:center;
+}
+.about-hero-cat img{
+  position:relative;
+  z-index:2;
+  max-width:100%;
+  max-height:590px;
+  object-fit:contain;
+  image-rendering:pixelated;
+  filter:drop-shadow(0 26px 45px rgba(0,0,0,.38));
+}
+.about-cat-ring{
+  position:absolute;
+  width:min(90%,490px);
+  aspect-ratio:1;
+  border-radius:50%;
+  border:1px solid rgba(255,253,181,.17);
+  box-shadow:
+    0 0 75px rgba(113,148,163,.10),
+    inset 0 0 70px rgba(255,253,181,.025);
+}
+.about-story{
+  display:grid;
+  grid-template-columns:.3fr 1fr;
+  gap:7vw;
+  border-top:1px solid var(--line);
+}
+.about-index{
+  font:700 10px/1 var(--body);
+  letter-spacing:.16em;
+  color:#706b66;
+}
+.about-story-copy{
+  max-width:950px;
+}
+.about-story-copy h2{
+  font:900 clamp(70px,8vw,122px)/.80 var(--display);
+  letter-spacing:-.035em;
+  margin:0 0 35px;
+}
+.about-story-copy p{
+  max-width:760px;
+  color:#aaa49e;
+  line-height:1.9;
+  font-size:16px;
+}
+.about-values{
+  border-top:1px solid var(--line);
+  background:#151517;
+}
+.values-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border-left:1px solid var(--line);
+  border-top:1px solid var(--line);
+}
+.value-card{
+  min-height:330px;
+  padding:32px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  transition:.25s;
+}
+.value-card:hover{
+  background:rgba(255,253,181,.035);
+  transform:translateY(-4px);
+}
+.value-card>span{
+  color:var(--cream);
+  font:700 10px/1 var(--body);
+  letter-spacing:.18em;
+}
+.value-card h3{
+  margin:80px 0 20px;
+  font:900 43px/.9 var(--display);
+}
+.value-card p{
+  color:#96908b;
+  line-height:1.8;
+  font-size:13px;
+}
+.about-games{
+  display:grid;
+  grid-template-columns:.3fr 1fr;
+  gap:7vw;
+  border-top:1px solid var(--line);
+}
+.about-games-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+.about-game-card{
+  min-height:430px;
+  padding:35px;
+  border:1px solid var(--line);
+  background:
+    radial-gradient(circle at 80% 20%,rgba(113,148,163,.10),transparent 30%),
+    #171719;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  transition:.25s;
+}
+.about-game-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(255,253,181,.28);
+}
+.about-game-card h3{
+  margin:70px 0 18px;
+  font:900 clamp(58px,6vw,92px)/.74 var(--display);
+}
+.about-game-card p{
+  color:#98928d;
+}
+.about-game-card b{
+  margin-top:auto;
+  color:var(--cream);
+  font-size:9px;
+  letter-spacing:.15em;
+}
+.about-cta{
+  min-height:580px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:90px 22px;
+  border-top:1px solid var(--line);
+  background:
+    radial-gradient(circle,rgba(255,253,181,.06),transparent 28%),
+    #101012;
+}
+.about-cta h2{
+  margin:20px 0 10px;
+  font:900 clamp(90px,12vw,180px)/.8 var(--display);
+}
+.about-cta p{
+  color:#8f8984;
+  margin:0 0 30px;
+}
+.steam-cta{
+  position:relative;
+  overflow:hidden;
+}
+
+@media(max-width:900px){
+  :root{--header-h:76px}
+
+  .zpd-hero-image-wrap{
+    inset:var(--header-h) 0 0 0 !important;
+  }
+
+  .about-teaser,
+  .about-hero,
+  .about-story,
+  .about-games{
+    grid-template-columns:1fr;
+  }
+
+  .about-hero-cat{
+    min-height:390px;
+  }
+
+  .about-hero-cat img{
+    max-height:420px;
+  }
+
+  .values-grid,
+  .about-games-grid{
+    grid-template-columns:1fr;
+  }
+
+  .about-story,
+  .about-games{
+    gap:40px;
+  }
+}
+
+@media(max-width:650px){
+  .about-hero{
+    padding:70px 20px;
+  }
+
+  .about-hero-copy h1{
+    font-size:18vw;
+  }
+
+  .about-hero-cat{
+    min-height:320px;
+  }
+
+  .value-card{
+    min-height:280px;
+  }
+}
+
+
+/* =========================
+   V11 — The Claws Behind It = actual LauMVP core team
+   ========================= */
+
+.team-section{
+  border-top:1px solid var(--line);
+  background:
+    radial-gradient(circle at 82% 12%,rgba(113,148,163,.08),transparent 23%),
+    #151517;
+}
+.team-head{
+  margin-bottom:58px;
+}
+.team-grid{
+  display:grid;
+  gap:22px;
+}
+.team-card{
+  min-height:560px;
+  display:grid;
+  grid-template-columns:minmax(330px,.72fr) 1.28fr;
+  border:1px solid var(--line);
+  background:#171719;
+  overflow:hidden;
+  transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease;
+}
+.team-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(255,253,181,.25);
+  box-shadow:0 24px 70px rgba(0,0,0,.18);
+}
+.team-photo-wrap{
+  position:relative;
+  overflow:hidden;
+  min-height:560px;
+  background:
+    radial-gradient(circle at center,rgba(113,148,163,.12),transparent 42%),
+    #111316;
+}
+.team-photo{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  filter:saturate(.88) contrast(1.03);
+  transition:transform .5s ease,filter .5s ease;
+}
+.team-card:hover .team-photo{
+  transform:scale(1.025);
+  filter:saturate(1) contrast(1.03);
+}
+.team-victor .team-photo{
+  object-position:center 20%;
+}
+.team-photo-andoy{
+  object-position:50% 50%;
+}
+.team-number{
+  position:absolute;
+  left:22px;
+  top:22px;
+  z-index:3;
+  display:grid;
+  place-items:center;
+  min-width:46px;
+  height:34px;
+  padding:0 10px;
+  border:1px solid rgba(255,253,181,.30);
+  background:rgba(10,11,13,.68);
+  backdrop-filter:blur(6px);
+  color:var(--cream);
+  font:800 10px/1 var(--body);
+  letter-spacing:.15em;
+}
+.team-info{
+  padding:50px clamp(34px,5vw,72px);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.team-role{
+  width:max-content;
+  max-width:100%;
+  padding-bottom:9px;
+  border-bottom:1px solid rgba(255,253,181,.25);
+  color:var(--cream);
+  font:800 9px/1.4 var(--body);
+  letter-spacing:.16em;
+}
+.team-info h3{
+  margin:22px 0 25px;
+  font:900 clamp(60px,6vw,98px)/.78 var(--display);
+  letter-spacing:-.025em;
+}
+.team-info p{
+  max-width:790px;
+  margin:0 0 15px;
+  color:#aaa49e;
+  font-size:14px;
+  line-height:1.85;
+}
+.team-info em{
+  color:#d9d4cd;
+}
+.team-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:17px;
+}
+.team-tags span{
+  padding:8px 10px;
+  border:1px solid var(--line);
+  color:#8d8883;
+  font:700 7px/1 var(--body);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+/* Christian's 100x100 cat avatar becomes intentional instead of pretending it's a portrait. */
+.christian-photo-wrap{
+  display:grid;
+  place-items:center;
+  background:
+    linear-gradient(rgba(255,253,181,.022) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,253,181,.022) 1px,transparent 1px),
+    radial-gradient(circle at center,rgba(113,148,163,.16),transparent 34%),
+    #111316;
+  background-size:42px 42px,42px 42px,auto,auto;
+}
+.christian-photo{
+  position:relative;
+  z-index:2;
+  width:min(52%,260px);
+  height:auto;
+  aspect-ratio:1;
+  object-fit:cover;
+  image-rendering:pixelated;
+  border:1px solid rgba(255,253,181,.25);
+  box-shadow:
+    0 22px 60px rgba(0,0,0,.38),
+    18px 18px 0 rgba(255,253,181,.025);
+}
+.team-card:hover .christian-photo{
+  transform:scale(1.045) rotate(-1deg);
+}
+.cat-avatar-halo{
+  position:absolute;
+  z-index:1;
+  width:min(70%,360px);
+  aspect-ratio:1;
+  border:1px solid rgba(255,253,181,.12);
+  border-radius:50%;
+  box-shadow:0 0 80px rgba(113,148,163,.10);
+}
+.cat-note{
+  position:absolute;
+  bottom:26px;
+  z-index:3;
+  color:#77716c;
+  font:700 7px/1 var(--body);
+  letter-spacing:.18em;
+}
+
+/* Rotate visual rhythm on the middle member. */
+.team-christian{
+  grid-template-columns:1.28fr minmax(330px,.72fr);
+}
+.team-christian .team-photo-wrap{
+  grid-column:2;
+  grid-row:1;
+}
+.team-christian .team-info{
+  grid-column:1;
+  grid-row:1;
+}
+
+@media(max-width:1000px){
+  .team-card,
+  .team-christian{
+    grid-template-columns:1fr;
+  }
+  .team-photo-wrap,
+  .team-christian .team-photo-wrap{
+    grid-column:1;
+    grid-row:1;
+    min-height:430px;
+  }
+  .team-info,
+  .team-christian .team-info{
+    grid-column:1;
+    grid-row:2;
+  }
+  .team-victor .team-photo{
+    object-position:center 22%;
+  }
+  .team-photo-andoy{
+    object-position:center center;
+  }
+}
+
+@media(max-width:650px){
+  .team-head{
+    margin-bottom:36px;
+  }
+  .team-photo-wrap,
+  .team-christian .team-photo-wrap{
+    min-height:340px;
+  }
+  .team-info{
+    padding:34px 24px 38px;
+  }
+  .team-info h3{
+    font-size:19vw;
+  }
+  .team-role{
+    width:auto;
+  }
+  .christian-photo{
+    width:min(55%,210px);
+  }
+}
+
+
+/* =========================
+   V12 — Team readability / hierarchy pass
+   ========================= */
+
+/* Slightly smaller image side, giving biographies more room. */
+.team-card{
+  grid-template-columns:minmax(285px,.58fr) 1.42fr !important;
+  min-height:500px;
+}
+.team-christian{
+  grid-template-columns:1.42fr minmax(285px,.58fr) !important;
+}
+
+/* Images are intentionally less dominant now. */
+.team-photo-wrap,
+.team-christian .team-photo-wrap{
+  min-height:500px;
+}
+.team-victor .team-photo{
+  object-position:center 20%;
+  transform:scale(.94);
+}
+.team-photo-andoy{
+  object-position:center center;
+  transform:scale(.94);
+}
+.team-victor:hover .team-photo,
+.team-andoy:hover .team-photo{
+  transform:scale(.965);
+}
+
+/* 01 / 02 / 03 have been removed from HTML; guard against old cached markup too. */
+.team-number{
+  display:none !important;
+}
+
+/* Role/title line is important experience information — make it readable. */
+.team-role{
+  padding-bottom:11px;
+  color:var(--cream) !important;
+  font-size:12px !important;
+  line-height:1.45 !important;
+  font-weight:800;
+  letter-spacing:.13em !important;
+  border-bottom:1px solid rgba(255,253,181,.34);
+}
+
+/* Names were overpowering the content. */
+.team-info h3{
+  margin:20px 0 25px;
+  font-size:clamp(48px,4.8vw,76px) !important;
+  line-height:.84 !important;
+}
+
+/* Biography copy gets a real reading size. */
+.team-info p{
+  max-width:850px;
+  margin-bottom:17px;
+  color:#bbb6b0 !important;
+  font-size:16px !important;
+  line-height:1.85 !important;
+}
+
+/* Skills / experience tags become visible credentials instead of tiny decoration. */
+.team-tags{
+  gap:9px;
+  margin-top:21px;
+}
+.team-tags span{
+  padding:10px 13px !important;
+  border-color:rgba(255,255,255,.23) !important;
+  background:rgba(255,255,255,.025);
+  color:#f5f2eb !important;
+  font-size:10px !important;
+  font-weight:800 !important;
+  line-height:1 !important;
+  letter-spacing:.11em !important;
+}
+
+/* Christian: smaller cat photo, no black/circular halo behind it. */
+.cat-avatar-halo{
+  display:none !important;
+}
+.christian-photo-wrap{
+  background:
+    linear-gradient(rgba(255,253,181,.022) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,253,181,.022) 1px,transparent 1px),
+    #111316 !important;
+  background-size:42px 42px,42px 42px,auto !important;
+}
+.christian-photo{
+  width:min(38%,175px) !important;
+  height:auto !important;
+  aspect-ratio:1;
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.28),
+    12px 12px 0 rgba(255,253,181,.025) !important;
+}
+.team-card:hover .christian-photo{
+  transform:scale(1.035) rotate(-1deg) !important;
+}
+
+/* The joke under Christian's avatar should actually be readable. */
+.cat-note{
+  bottom:36px !important;
+  color:#f5f2eb !important;
+  font-size:11px !important;
+  font-weight:800 !important;
+  line-height:1 !important;
+  letter-spacing:.14em !important;
+}
+
+/* Give the copy a little more breathing room without making the cards enormous. */
+.team-info{
+  padding:46px clamp(34px,4.5vw,68px) !important;
+}
+
+@media(max-width:1000px){
+  .team-card,
+  .team-christian{
+    grid-template-columns:1fr !important;
+  }
+
+  .team-photo-wrap,
+  .team-christian .team-photo-wrap{
+    min-height:390px !important;
+  }
+
+  .team-victor .team-photo,
+  .team-photo-andoy{
+    transform:none;
+  }
+
+  .team-victor:hover .team-photo,
+  .team-andoy:hover .team-photo{
+    transform:scale(1.02);
+  }
+
+  .christian-photo{
+    width:min(34%,180px) !important;
+  }
+}
+
+@media(max-width:650px){
+  .team-photo-wrap,
+  .team-christian .team-photo-wrap{
+    min-height:300px !important;
+  }
+
+  .team-info{
+    padding:32px 22px 36px !important;
+  }
+
+  .team-info h3{
+    font-size:16vw !important;
+  }
+
+  .team-role{
+    font-size:10px !important;
+  }
+
+  .team-info p{
+    font-size:15px !important;
+  }
+
+  .team-tags span{
+    font-size:9px !important;
+    padding:9px 10px !important;
+  }
+
+  .christian-photo{
+    width:min(40%,150px) !important;
+  }
+
+  .cat-note{
+    font-size:9px !important;
+    bottom:24px !important;
+  }
+}
+
+
+/* =========================
+   V13 — Paolo joins The Claws Behind It
+   ========================= */
+
+/* Fourth card alternates back to text-left / image-right, continuing the visual rhythm. */
+.team-paolo{
+  grid-template-columns:1.42fr minmax(285px,.58fr) !important;
+}
+.team-paolo .team-photo-wrap{
+  grid-column:2;
+  grid-row:1;
+}
+.team-paolo .team-info{
+  grid-column:1;
+  grid-row:1;
+}
+.team-photo-paolo{
+  object-position:center center;
+  transform:scale(.94);
+}
+.team-paolo:hover .team-photo-paolo{
+  transform:scale(.965);
+}
+
+@media(max-width:1000px){
+  .team-paolo{
+    grid-template-columns:1fr !important;
+  }
+  .team-paolo .team-photo-wrap{
+    grid-column:1;
+    grid-row:1;
+  }
+  .team-paolo .team-info{
+    grid-column:1;
+    grid-row:2;
+  }
+  .team-photo-paolo{
+    transform:none;
+    object-position:center center;
+  }
+  .team-paolo:hover .team-photo-paolo{
+    transform:scale(1.02);
+  }
+}
+
+
+/* =========================
+   V14 — cleaner copy / no decorative ghost labels
+   ========================= */
+
+/* Deleted decorative labels should never leave blank layout columns behind. */
+.about-teaser{
+  grid-template-columns:1fr !important;
+}
+.about-teaser-copy{
+  margin-left:0;
+}
+
+.about-story{
+  grid-template-columns:1fr !important;
+}
+.about-story-copy{
+  max-width:980px;
+}
+
+.about-games{
+  grid-template-columns:1fr !important;
+}
+.about-games-grid{
+  width:100%;
+}
+
+/* No decorative project/index/release numbering anywhere. */
+.hero-release-stamp,
+.about-index,
+.about-teaser-number,
+.team-number,
+.corner-label{
+  display:none !important;
+}
+
+/* Since the team eyebrow is gone, tighten the header slightly. */
+.team-head h2{
+  margin-top:0;
+}
+
+/* High Life description is now a little more important: improve readability. */
+.feature-info p{
+  color:#aaa49e !important;
+  font-size:16px !important;
+  line-height:1.82 !important;
+}
+
+/* The About page hero starts directly with the actual statement. */
+.about-hero-copy h1{
+  margin-top:0 !important;
+}
+
+/* Keep the CTA clean after removing its tiny decorative label. */
+.about-cta h2{
+  margin-top:0 !important;
+}
+
+
+/* =========================
+   V15 — About ZPD artwork + full mobile pass
+   ========================= */
+
+/* ABOUT PAGE: use the real ZPD scene behind its game card. */
+.about-game-card:first-child{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:
+    linear-gradient(90deg,
+      rgba(8,11,15,.96) 0%,
+      rgba(8,11,15,.86) 38%,
+      rgba(8,11,15,.50) 70%,
+      rgba(8,11,15,.35) 100%),
+    url("assets/zpd-forest-scene.png") center center / cover no-repeat !important;
+}
+.about-game-card:first-child:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:
+    linear-gradient(180deg,rgba(8,11,15,.10),rgba(8,11,15,.38)),
+    repeating-linear-gradient(0deg,transparent 0 5px,rgba(255,255,255,.012) 5px 6px);
+}
+.about-game-card:first-child > *{
+  position:relative;
+  z-index:1;
+}
+.about-game-card:first-child h3{
+  text-shadow:0 10px 35px rgba(0,0,0,.52);
+}
+.about-game-card:first-child p{
+  color:#d5d0ca;
+  text-shadow:0 4px 15px rgba(0,0,0,.60);
+}
+
+/* -------- FULL PHONE / TABLET PASS -------- */
+@media(max-width:900px){
+  /* Fixed header becomes compact but remains usable. */
+  .site-header{
+    height:76px !important;
+    padding:0 20px !important;
+  }
+
+  .brand-main{
+    font-size:17px;
+  }
+  .brand-sub{
+    font-size:6px;
+  }
+
+  /* Hero text stays clear of the fixed navigation. */
+  .hero{
+    min-height:100svh;
+    padding:125px 20px 58px !important;
+  }
+  .zpd-hero .hero-content{
+    max-width:620px;
+  }
+  .zpd-hero-title{
+    width:auto !important;
+    max-width:78vw;
+    font-size:clamp(68px,18vw,126px) !important;
+    line-height:.70 !important;
+  }
+  .zpd-hero .hero-copy{
+    max-width:520px;
+  }
+
+  /* Main page sections */
+  .manifesto-grid{
+    grid-template-columns:1fr !important;
+    gap:34px !important;
+  }
+  .section-head{
+    display:block !important;
+  }
+  .section-head > p{
+    width:auto !important;
+    max-width:560px;
+    margin-top:20px;
+  }
+
+  .feature-card{
+    grid-template-columns:1fr !important;
+  }
+  .coming-soon-art{
+    min-height:430px !important;
+  }
+  .feature-info{
+    min-height:auto !important;
+    padding:36px 30px !important;
+    gap:50px;
+  }
+
+  .about-teaser{
+    grid-template-columns:1fr !important;
+    min-height:auto !important;
+  }
+
+  .contact-layout{
+    grid-template-columns:1fr !important;
+    gap:50px !important;
+  }
+
+  /* About page team + games */
+  .about-hero{
+    grid-template-columns:1fr !important;
+    min-height:auto !important;
+    padding:72px 28px !important;
+  }
+  .about-hero-copy h1{
+    font-size:clamp(62px,15vw,108px) !important;
+  }
+  .about-hero-cat{
+    min-height:360px !important;
+  }
+
+  .team-card,
+  .team-christian,
+  .team-paolo{
+    grid-template-columns:1fr !important;
+  }
+  .team-photo-wrap,
+  .team-christian .team-photo-wrap,
+  .team-paolo .team-photo-wrap{
+    grid-column:1 !important;
+    grid-row:1 !important;
+    min-height:380px !important;
+  }
+  .team-info,
+  .team-christian .team-info,
+  .team-paolo .team-info{
+    grid-column:1 !important;
+    grid-row:2 !important;
+  }
+
+  .about-games-grid{
+    grid-template-columns:1fr !important;
+  }
+  .about-game-card{
+    min-height:390px !important;
+  }
+
+  footer{
+    grid-template-columns:1fr !important;
+    gap:19px !important;
+    text-align:center;
+    justify-items:center;
+  }
+  .copyright{
+    text-align:center !important;
+  }
+}
+
+/* Actual phone widths. */
+@media(max-width:650px){
+  .section-pad{
+    padding:72px 18px !important;
+  }
+
+  .site-header{
+    height:68px !important;
+    padding:0 16px !important;
+  }
+
+  .brand-main{
+    font-size:15px;
+  }
+
+  /* Mobile menu button stays above the overlay. */
+  .menu-toggle{
+    display:block !important;
+    z-index:302 !important;
+  }
+  .header-right{
+    z-index:300 !important;
+  }
+
+  .hero{
+    padding:112px 18px 48px !important;
+  }
+  .zpd-hero-title{
+    max-width:88vw;
+    font-size:22vw !important;
+  }
+  .zpd-hero-steam{
+    font-size:9px !important;
+    letter-spacing:.12em !important;
+  }
+  .zpd-hero-steam i{
+    font-size:17px !important;
+  }
+  .zpd-hero .hero-copy{
+    font-size:14px !important;
+    line-height:1.65 !important;
+  }
+  .hero-actions{
+    width:100%;
+  }
+  .hero-actions .button{
+    width:100%;
+  }
+
+  .manifesto h2,
+  .section-head h2,
+  .about-teaser-copy h2,
+  .contact h2{
+    font-size:18vw !important;
+  }
+
+  .coming-soon-art{
+    min-height:350px !important;
+  }
+  .coming-word,
+  .soon-word{
+    font-size:23vw !important;
+  }
+
+  .feature-info{
+    padding:30px 22px !important;
+  }
+  .feature-info h3{
+    font-size:14vw !important;
+  }
+  .feature-info p{
+    font-size:15px !important;
+  }
+
+  .contact{
+    padding:80px 18px !important;
+  }
+  .contact-form{
+    padding:22px 18px !important;
+  }
+  .field-row{
+    grid-template-columns:1fr !important;
+  }
+
+  /* About page */
+  .about-main{
+    padding-top:68px !important;
+  }
+  .about-hero{
+    padding:60px 18px !important;
+  }
+  .about-hero-copy h1{
+    font-size:17vw !important;
+  }
+  .about-hero-copy > p{
+    font-size:15px !important;
+  }
+  .about-hero-cat{
+    min-height:290px !important;
+  }
+  .about-hero-cat img{
+    max-height:310px !important;
+  }
+
+  .team-photo-wrap,
+  .team-christian .team-photo-wrap,
+  .team-paolo .team-photo-wrap{
+    min-height:280px !important;
+  }
+  .team-info{
+    padding:30px 20px 34px !important;
+  }
+  .team-info h3{
+    font-size:15vw !important;
+  }
+  .team-info p{
+    font-size:15px !important;
+    line-height:1.75 !important;
+  }
+  .team-role{
+    font-size:9px !important;
+  }
+  .team-tags span{
+    font-size:8px !important;
+  }
+
+  .about-game-card{
+    min-height:360px !important;
+    padding:28px 22px !important;
+  }
+  .about-game-card h3{
+    font-size:17vw !important;
+    margin-top:58px !important;
+  }
+  .about-game-card:first-child{
+    background:
+      linear-gradient(90deg,
+        rgba(8,11,15,.96) 0%,
+        rgba(8,11,15,.82) 60%,
+        rgba(8,11,15,.55) 100%),
+      url("assets/zpd-forest-scene.png") 58% center / cover no-repeat !important;
+  }
+
+  .footer-middle{
+    max-width:290px;
+    line-height:1.5;
+  }
+}
+
+/* Extra-small phones */
+@media(max-width:390px){
+  .zpd-hero-title{
+    font-size:21vw !important;
+  }
+  .about-hero-copy h1{
+    font-size:16vw !important;
+  }
+  .coming-word,
+  .soon-word{
+    font-size:21vw !important;
+  }
+}
+
+
+/* =====================================================================
+   V16 — UNIVERSAL RESPONSIVE SYSTEM
+   Goal: make the site behave cleanly from tiny phones to 4K/ultrawide.
+   ===================================================================== */
+
+:root{
+  --site-max:1680px;
+  --site-gutter:clamp(18px,4vw,72px);
+  --header-h:94px;
+}
+
+/* Global safety guards */
+html{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+  -webkit-text-size-adjust:100%;
+}
+body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+}
+img,video,canvas,svg{
+  max-width:100%;
+}
+input,textarea,button,select{
+  max-width:100%;
+}
+p,h1,h2,h3,a,span{
+  overflow-wrap:break-word;
+}
+.mail-link{
+  max-width:100%;
+  overflow-wrap:anywhere;
+}
+
+/* Center content on huge displays instead of stretching forever. */
+.section-pad{
+  padding-left:max(var(--site-gutter),calc((100vw - var(--site-max))/2)) !important;
+  padding-right:max(var(--site-gutter),calc((100vw - var(--site-max))/2)) !important;
+}
+.site-header{
+  padding-left:max(var(--site-gutter),calc((100vw - 1760px)/2)) !important;
+  padding-right:max(var(--site-gutter),calc((100vw - 1760px)/2)) !important;
+}
+.hero{
+  padding-left:max(var(--site-gutter),calc((100vw - var(--site-max))/2)) !important;
+  padding-right:max(var(--site-gutter),calc((100vw - var(--site-max))/2)) !important;
+}
+
+/* Fullscreen hero stays composed regardless of width/height. */
+.zpd-hero{
+  min-height:100svh;
+}
+.zpd-hero .hero-content{
+  width:min(680px,45vw);
+}
+.zpd-hero-title{
+  width:max-content !important;
+  max-width:100%;
+  font-size:clamp(76px,8.1vw,154px) !important;
+}
+.zpd-hero .hero-copy{
+  width:min(100%,560px);
+}
+
+/* Prevent giant cards from becoming unreadably wide on 2K/4K/ultrawide. */
+.feature-card,
+.about-teaser,
+.contact-layout,
+.team-grid,
+.about-games-grid,
+.about-story-copy,
+.about-hero > *,
+.manifesto-grid,
+.section-head{
+  max-width:var(--site-max);
+}
+
+/* Stable two-column proportions through laptop / desktop widths. */
+.feature-card{
+  grid-template-columns:minmax(0,1.45fr) minmax(330px,.75fr);
+}
+.feature-art,
+.feature-info,
+.zpd-art,
+.zpd-copy,
+.about-copy,
+.contact-copy,
+.contact-form{
+  min-width:0;
+}
+.feature-info h3,
+.team-info h3,
+.about-game-card h3{
+  word-break:normal;
+}
+
+/* Make footer content scale without colliding. */
+footer{
+  padding-left:max(var(--site-gutter),calc((100vw - 1760px)/2)) !important;
+  padding-right:max(var(--site-gutter),calc((100vw - 1760px)/2)) !important;
+}
+.footer-middle{
+  white-space:normal;
+}
+
+/* ============================================================
+   LARGE / ULTRAWIDE / 4K
+   ============================================================ */
+@media(min-width:1920px){
+  .hero{
+    padding-top:130px !important;
+    padding-bottom:86px !important;
+  }
+
+  .zpd-hero .hero-content{
+    width:700px;
+  }
+
+  .zpd-hero-title{
+    font-size:154px !important;
+  }
+
+  .section-pad{
+    padding-top:clamp(110px,6vw,150px) !important;
+    padding-bottom:clamp(110px,6vw,150px) !important;
+  }
+
+  .feature-card{
+    min-height:620px;
+  }
+
+  .coming-soon-art{
+    min-height:620px !important;
+  }
+
+  .contact-layout{
+    margin-inline:auto;
+    width:100%;
+  }
+
+  .about-hero{
+    padding-left:max(var(--site-gutter),calc((100vw - var(--site-max))/2)) !important;
+    padding-right:max(var(--site-gutter),calc((100vw - var(--site-max))/2)) !important;
+  }
+}
+
+/* ============================================================
+   LAPTOP / SMALL DESKTOP
+   ============================================================ */
+@media(max-width:1366px){
+  :root{--header-h:82px}
+
+  .site-header{
+    height:var(--header-h) !important;
+  }
+
+  .hero{
+    padding-top:calc(var(--header-h) + 42px) !important;
+    padding-bottom:48px !important;
+  }
+
+  .zpd-hero-title{
+    font-size:clamp(72px,9.2vw,126px) !important;
+  }
+
+  .zpd-hero .hero-copy{
+    font-size:15px;
+  }
+
+  .section-pad{
+    padding-top:90px !important;
+    padding-bottom:90px !important;
+  }
+
+  .feature-info{
+    padding:40px !important;
+  }
+
+  .contact{
+    padding-top:100px !important;
+    padding-bottom:100px !important;
+  }
+}
+
+/* ============================================================
+   SWITCH TO MOBILE NAV EARLY ENOUGH THAT HEADER NEVER COLLIDES
+   ============================================================ */
+@media(max-width:1180px){
+  :root{--header-h:76px}
+
+  .site-header{
+    height:var(--header-h) !important;
+    padding-left:max(20px,env(safe-area-inset-left)) !important;
+    padding-right:max(20px,env(safe-area-inset-right)) !important;
+  }
+
+  .menu-toggle{
+    display:block !important;
+    position:relative;
+    z-index:402 !important;
+  }
+
+  .header-right{
+    position:fixed !important;
+    inset:0 !important;
+    z-index:400 !important;
+    min-height:100dvh;
+    padding:
+      calc(var(--header-h) + 35px)
+      max(22px,env(safe-area-inset-right))
+      max(35px,env(safe-area-inset-bottom))
+      max(22px,env(safe-area-inset-left));
+    background:rgba(17,17,20,.985) !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:28px !important;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .22s ease,visibility .22s ease;
+  }
+
+  .header-right.open{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+  }
+
+  .nav{
+    position:static !important;
+    inset:auto !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:24px !important;
+    background:transparent !important;
+    opacity:1 !important;
+    pointer-events:auto !important;
+  }
+
+  .nav a{
+    font:800 clamp(34px,6vw,52px)/1 var(--display) !important;
+    letter-spacing:.04em !important;
+  }
+
+  .header-socials{
+    border-left:0 !important;
+    border-top:1px solid var(--line) !important;
+    padding:22px 0 0 !important;
+    gap:8px !important;
+  }
+
+  .header-socials a,
+  .header-socials .social-disabled{
+    width:42px !important;
+    height:42px !important;
+    font-size:17px !important;
+    border:1px solid var(--line);
+  }
+
+  .hero{
+    padding-top:calc(var(--header-h) + 52px) !important;
+  }
+
+  .zpd-hero-image-wrap{
+    inset:var(--header-h) 0 0 0 !important;
+  }
+
+  .zpd-hero .hero-content{
+    width:min(620px,58vw);
+  }
+
+  .zpd-hero-title{
+    font-size:clamp(70px,11vw,120px) !important;
+  }
+
+  .feature-card{
+    grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);
+  }
+
+  .contact-layout{
+    gap:6vw !important;
+  }
+}
+
+/* ============================================================
+   TABLETS / NARROW LAPTOPS
+   ============================================================ */
+@media(max-width:900px){
+  .hero{
+    min-height:100svh;
+    align-items:center !important;
+    padding-top:calc(var(--header-h) + 50px) !important;
+    padding-bottom:55px !important;
+  }
+
+  .zpd-hero .hero-content{
+    width:min(620px,76vw);
+  }
+
+  .zpd-hero-title{
+    font-size:clamp(70px,16vw,118px) !important;
+  }
+
+  .zpd-hero-shade{
+    background:
+      linear-gradient(90deg,rgba(7,10,15,.95) 0%,rgba(7,10,15,.78) 52%,rgba(7,10,15,.33) 100%),
+      linear-gradient(180deg,rgba(7,10,15,.15),rgba(7,10,15,.35)) !important;
+  }
+
+  .section-pad{
+    padding-top:78px !important;
+    padding-bottom:78px !important;
+  }
+
+  .manifesto-grid,
+  .feature-card,
+  .contact-layout,
+  .about-teaser,
+  .about-story,
+  .about-games{
+    grid-template-columns:1fr !important;
+  }
+
+  .section-head{
+    display:block !important;
+  }
+
+  .section-head > p{
+    width:auto !important;
+    max-width:620px;
+    margin-top:22px;
+  }
+
+  .feature-card{
+    min-height:0 !important;
+  }
+
+  .feature-art,
+  .coming-soon-art{
+    min-height:430px !important;
+  }
+
+  .feature-info{
+    min-height:0 !important;
+    padding:34px 30px !important;
+    gap:48px;
+  }
+
+  .field-row{
+    grid-template-columns:1fr !important;
+  }
+
+  .about-main{
+    padding-top:var(--header-h) !important;
+  }
+
+  .about-hero{
+    grid-template-columns:1fr !important;
+    min-height:0 !important;
+    padding:
+      70px max(26px,env(safe-area-inset-right))
+      65px max(26px,env(safe-area-inset-left)) !important;
+  }
+
+  .about-hero-copy{
+    max-width:780px;
+  }
+
+  .about-hero-cat{
+    min-height:350px !important;
+  }
+
+  .team-card,
+  .team-christian,
+  .team-paolo{
+    grid-template-columns:1fr !important;
+    min-height:0 !important;
+  }
+
+  .team-photo-wrap,
+  .team-christian .team-photo-wrap,
+  .team-paolo .team-photo-wrap{
+    grid-column:1 !important;
+    grid-row:1 !important;
+    min-height:360px !important;
+  }
+
+  .team-info,
+  .team-christian .team-info,
+  .team-paolo .team-info{
+    grid-column:1 !important;
+    grid-row:2 !important;
+  }
+
+  .about-games-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  footer{
+    grid-template-columns:1fr !important;
+    justify-items:center !important;
+    text-align:center !important;
+    gap:18px !important;
+  }
+
+  .copyright{
+    text-align:center !important;
+  }
+}
+
+/* ============================================================
+   PHONES
+   ============================================================ */
+@media(max-width:650px){
+  :root{
+    --header-h:68px;
+    --site-gutter:18px;
+  }
+
+  .site-header{
+    height:var(--header-h) !important;
+    padding-left:max(16px,env(safe-area-inset-left)) !important;
+    padding-right:max(16px,env(safe-area-inset-right)) !important;
+  }
+
+  .brand-main{
+    font-size:15px !important;
+  }
+  .brand-sub{
+    font-size:6px !important;
+    letter-spacing:.24em !important;
+  }
+
+  .section-pad{
+    padding:
+      68px max(18px,env(safe-area-inset-right))
+      68px max(18px,env(safe-area-inset-left)) !important;
+  }
+
+  .hero{
+    min-height:100svh;
+    padding:
+      calc(var(--header-h) + 42px)
+      max(18px,env(safe-area-inset-right))
+      max(42px,env(safe-area-inset-bottom))
+      max(18px,env(safe-area-inset-left)) !important;
+    align-items:center !important;
+  }
+
+  .zpd-hero .hero-content{
+    width:100%;
+    max-width:520px;
+  }
+
+  .zpd-hero-image{
+    object-position:60% center !important;
+  }
+
+  .zpd-hero-shade{
+    background:
+      linear-gradient(90deg,rgba(7,10,15,.96) 0%,rgba(7,10,15,.78) 64%,rgba(7,10,15,.46) 100%),
+      linear-gradient(180deg,rgba(7,10,15,.16),rgba(7,10,15,.42)) !important;
+  }
+
+  .zpd-hero-title{
+    width:100% !important;
+    max-width:100% !important;
+    font-size:clamp(62px,21vw,96px) !important;
+    line-height:.70 !important;
+    margin-bottom:24px !important;
+  }
+
+  .zpd-hero-steam{
+    font-size:9px !important;
+    letter-spacing:.10em !important;
+    gap:8px !important;
+    margin-bottom:18px !important;
+  }
+
+  .zpd-hero-steam i{
+    font-size:17px !important;
+  }
+
+  .zpd-hero-steam .eyebrow-line{
+    width:24px !important;
+  }
+
+  .zpd-hero .hero-copy{
+    font-size:14px !important;
+    line-height:1.65 !important;
+    margin-bottom:25px !important;
+  }
+
+  .hero-actions{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    width:100%;
+    gap:10px !important;
+  }
+
+  .hero-actions .button{
+    width:100%;
+    min-width:0;
+  }
+
+  .manifesto h2,
+  .section-head h2,
+  .about-teaser-copy h2,
+  .contact h2{
+    font-size:clamp(54px,17vw,82px) !important;
+  }
+
+  .manifesto-copy p,
+  .about-teaser-copy p,
+  .contact-copy p{
+    font-size:14px !important;
+  }
+
+  .coming-soon-art,
+  .feature-art{
+    min-height:340px !important;
+  }
+
+  .coming-soon-lockup{
+    width:94% !important;
+    padding-inline:10px !important;
+  }
+
+  .coming-word,
+  .soon-word{
+    font-size:clamp(66px,22vw,100px) !important;
+  }
+
+  .feature-info{
+    padding:28px 21px !important;
+    gap:38px !important;
+  }
+
+  .feature-info h3{
+    font-size:clamp(52px,15vw,72px) !important;
+  }
+
+  .feature-info p{
+    font-size:15px !important;
+    line-height:1.72 !important;
+  }
+
+  .feature-footer{
+    align-items:flex-end !important;
+    gap:18px;
+  }
+
+  .feature-footer > span{
+    line-height:1.5;
+  }
+
+  .contact{
+    padding:
+      76px max(18px,env(safe-area-inset-right))
+      76px max(18px,env(safe-area-inset-left)) !important;
+  }
+
+  .contact-form{
+    padding:22px 18px !important;
+  }
+
+  .submit-button{
+    width:100%;
+  }
+
+  /* About page */
+  .about-hero{
+    padding:
+      56px max(18px,env(safe-area-inset-right))
+      55px max(18px,env(safe-area-inset-left)) !important;
+  }
+
+  .about-hero-copy h1{
+    font-size:clamp(54px,16.5vw,76px) !important;
+    line-height:.82 !important;
+  }
+
+  .about-hero-copy > p{
+    font-size:15px !important;
+    line-height:1.75 !important;
+  }
+
+  .about-hero-cat{
+    min-height:260px !important;
+  }
+
+  .about-hero-cat img{
+    max-height:280px !important;
+  }
+
+  .about-story-copy h2{
+    font-size:clamp(58px,17vw,84px) !important;
+  }
+
+  .about-story-copy p{
+    font-size:15px !important;
+    line-height:1.8 !important;
+  }
+
+  .team-photo-wrap,
+  .team-christian .team-photo-wrap,
+  .team-paolo .team-photo-wrap{
+    min-height:270px !important;
+  }
+
+  .team-info{
+    padding:29px 20px 34px !important;
+  }
+
+  .team-info h3{
+    font-size:clamp(54px,15vw,74px) !important;
+  }
+
+  .team-role{
+    width:auto !important;
+    font-size:9px !important;
+    line-height:1.5 !important;
+  }
+
+  .team-info p{
+    font-size:15px !important;
+    line-height:1.72 !important;
+  }
+
+  .team-tags{
+    gap:7px !important;
+  }
+
+  .team-tags span{
+    font-size:8px !important;
+    line-height:1.25 !important;
+    padding:8px 9px !important;
+  }
+
+  .christian-photo{
+    width:min(42%,150px) !important;
+  }
+
+  .cat-note{
+    font-size:9px !important;
+    text-align:center;
+    padding-inline:12px;
+  }
+
+  .about-game-card{
+    min-height:340px !important;
+    padding:26px 20px !important;
+  }
+
+  .about-game-card h3{
+    font-size:clamp(58px,17vw,82px) !important;
+    margin-top:50px !important;
+  }
+
+  .about-game-card:first-child{
+    background:
+      linear-gradient(90deg,rgba(8,11,15,.97) 0%,rgba(8,11,15,.84) 67%,rgba(8,11,15,.60) 100%),
+      url("assets/zpd-forest-scene.png") 60% center / cover no-repeat !important;
+  }
+
+  .about-cta{
+    min-height:440px !important;
+    padding-inline:18px !important;
+  }
+
+  .about-cta h2{
+    font-size:clamp(76px,24vw,112px) !important;
+  }
+
+  footer{
+    padding:
+      32px max(18px,env(safe-area-inset-right))
+      max(32px,env(safe-area-inset-bottom))
+      max(18px,env(safe-area-inset-left)) !important;
+  }
+
+  .footer-middle{
+    max-width:300px;
+    font-size:10px !important;
+    line-height:1.55 !important;
+  }
+}
+
+/* ============================================================
+   TINY PHONES (320px class)
+   ============================================================ */
+@media(max-width:360px){
+  .zpd-hero-title{
+    font-size:20vw !important;
+  }
+
+  .button{
+    padding-inline:14px !important;
+    font-size:9px !important;
+  }
+
+  .feature-footer{
+    flex-direction:column;
+    align-items:flex-start !important;
+  }
+
+  .circle-link{
+    width:42px !important;
+    height:42px !important;
+  }
+
+  .contact-form{
+    padding-inline:15px !important;
+  }
+
+  .team-info{
+    padding-inline:17px !important;
+  }
+
+  .team-info p{
+    font-size:14px !important;
+  }
+
+  .team-tags span{
+    font-size:7px !important;
+  }
+}
+
+/* ============================================================
+   SHORT LAPTOPS / PHONE LANDSCAPE
+   Width alone is not enough — protect against tiny viewport height.
+   ============================================================ */
+@media(max-height:760px) and (min-width:901px){
+  .hero{
+    min-height:760px;
+    padding-top:calc(var(--header-h) + 34px) !important;
+    padding-bottom:35px !important;
+  }
+
+  .zpd-hero-title{
+    font-size:clamp(68px,8vw,112px) !important;
+    margin-bottom:20px !important;
+  }
+
+  .zpd-hero-steam{
+    margin-bottom:16px !important;
+  }
+
+  .zpd-hero .hero-copy{
+    margin-bottom:21px !important;
+    line-height:1.55 !important;
+  }
+
+  .hero-actions .button{
+    min-height:48px !important;
+  }
+}
+
+@media(max-height:560px) and (orientation:landscape){
+  :root{--header-h:58px}
+
+  .site-header{
+    height:var(--header-h) !important;
+  }
+
+  .brand-sub{
+    display:none;
+  }
+
+  .hero{
+    min-height:560px;
+    padding-top:calc(var(--header-h) + 25px) !important;
+    padding-bottom:24px !important;
+    align-items:center !important;
+  }
+
+  .zpd-hero .hero-content{
+    width:min(520px,65vw);
+  }
+
+  .zpd-hero-title{
+    font-size:clamp(58px,11vw,86px) !important;
+    margin-bottom:14px !important;
+  }
+
+  .zpd-hero-steam{
+    margin-bottom:12px !important;
+  }
+
+  .zpd-hero .hero-copy{
+    margin-bottom:16px !important;
+    font-size:13px !important;
+  }
+
+  .hero-actions{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+
+  .hero-actions .button{
+    min-height:44px !important;
+  }
+
+  .header-right{
+    justify-content:flex-start !important;
+    overflow-y:auto;
+  }
+
+  .nav a{
+    font-size:32px !important;
+  }
+
+  .header-socials{
+    padding-top:15px !important;
+  }
+
+  .about-main{
+    padding-top:var(--header-h) !important;
+  }
+}
+
+/* Touch devices: avoid hover behavior sticking after taps. */
+@media(hover:none){
+  .team-card:hover,
+  .feature-card:hover,
+  .zpd-card:hover,
+  .about-game-card:hover,
+  .value-card:hover{
+    transform:none !important;
+  }
+}
+
+/* Print/fallback sanity */
+@supports not (height:100svh){
+  .hero{min-height:100vh}
+}
